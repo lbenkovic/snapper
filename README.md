@@ -1,1 +1,1 @@
-# snapper
+## Snapper Social Media App
