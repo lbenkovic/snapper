@@ -30,12 +30,12 @@ def verify_password(plain_password, hashed_password):
 def create_jwt_token(username: str):
     expiration = datetime.datetime.utcnow() + datetime.timedelta(hours=2)
     token_data = {"sub": username, "exp": expiration}
-    return jwt.encode(token_data, JWT_SECRET_KEY, algorithm=JWT_ALGORITHM) # type: ignore
+    return jwt.encode(token_data, JWT_SECRET_KEY, algorithm=JWT_ALGORITHM)
 
 # Decode JWT token
 def decode_jwt_token(token: str):
     try:
-        payload = jwt.decode(token, JWT_SECRET_KEY, algorithms=[JWT_ALGORITHM]) # type: ignore
+        payload = jwt.decode(token, JWT_SECRET_KEY, algorithms=[JWT_ALGORITHM])
         return payload.get("sub")
     except jwt.ExpiredSignatureError:
         return None

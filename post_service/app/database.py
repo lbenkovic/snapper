@@ -29,7 +29,7 @@ s3_client = boto3.client(
 )
 
 table_name = "Posts"
-posts_table = dynamodb.Table(table_name) # type: ignore
+posts_table = dynamodb.Table(table_name)
 
 # Enable TTL on the table
 def enable_ttl(table_name: str, ttl_attribute: str = "expires_at"):
@@ -62,9 +62,9 @@ def enable_ttl(table_name: str, ttl_attribute: str = "expires_at"):
 # Create Posts table if it doesn't exist
 def create_table():
     try:
-        existing_tables = [table.name for table in dynamodb.tables.all()]  # type: ignore
+        existing_tables = [table.name for table in dynamodb.tables.all()]
         if table_name not in existing_tables:
-            table = dynamodb.create_table(  # type: ignore
+            table = dynamodb.create_table(
                 TableName=table_name,
                 KeySchema=[
                     {"AttributeName": "post_id", "KeyType": "HASH"},

@@ -7,6 +7,8 @@ from models import DMMessage
 load_dotenv()
 
 AUTH_PATH = os.getenv("AUTH_PATH")
+USERS_PATH = os.getenv("USERS_PATH")
+MESSAGES_PATH = os.getenv("MESSAGES_PATH")
 
 router = APIRouter()
 
@@ -18,7 +20,7 @@ async def verify_token(token: str):
     if not token:
         raise HTTPException(status_code=401, detail="Missing token")
     async with aiohttp.ClientSession() as session:
-        async with session.get(AUTH_PATH, headers={"Authorization": f"Bearer {token}"}) as resp: # type: ignore
+        async with session.get(AUTH_PATH, headers={"Authorization": f"Bearer {token}"}) as resp:
             if resp.status != 200:
                 raise HTTPException(status_code=401, detail="Invalid token")
             return await resp.json()
@@ -68,7 +70,7 @@ async def websocket_endpoint(websocket: WebSocket):
             
             async with aiohttp.ClientSession() as session:
                 resp = await session.get(
-                    f"http://user_service:8000/users/{dm.to}",
+                    f"{USERS_PATH}/{dm.to}",
                     headers={"Authorization": f"Bearer {token}"}
                 )
                 if resp.status == 404:
@@ -86,7 +88,7 @@ async def websocket_endpoint(websocket: WebSocket):
                 
             async with aiohttp.ClientSession() as session:
                 resp = await session.post(
-                    "http://message_service:8000/messages",
+                    MESSAGES_PATH,
                     json={"to": dm.to, "content": dm.content},
                     headers={"Authorization": f"Bearer {token}"}
                 )

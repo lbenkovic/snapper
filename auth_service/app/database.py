@@ -21,14 +21,14 @@ dynamodb = boto3.resource(
 )
 
 table_name = "Users"
-users_table = dynamodb.Table(table_name) # type: ignore
+users_table = dynamodb.Table(table_name)
 
 # Create users table if it doesn't exist
 def create_table():
     try:
-        existing_tables = [table.name for table in dynamodb.tables.all()] # type: ignore
+        existing_tables = [table.name for table in dynamodb.tables.all()]
         if table_name not in existing_tables:
-            table = dynamodb.create_table( # type: ignore
+            table = dynamodb.create_table(
                 TableName=table_name,
                 KeySchema=[{"AttributeName": "username", "KeyType": "HASH"}],
                 AttributeDefinitions=[{"AttributeName": "username", "AttributeType": "S"}],

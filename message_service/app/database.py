@@ -21,14 +21,14 @@ dynamodb = boto3.resource(
 )
 
 table_name = "Messages"
-messages_table = dynamodb.Table(table_name)  # type: ignore
+messages_table = dynamodb.Table(table_name)
 
 # Create messages table if it doesn't exist
 def create_table():
     try:
-        existing_tables = [t.name for t in dynamodb.tables.all()]  # type: ignore
+        existing_tables = [t.name for t in dynamodb.tables.all()]
         if table_name not in existing_tables:
-            table = dynamodb.create_table( #type: ignore
+            table = dynamodb.create_table(
                 TableName=table_name,
                 KeySchema=[
                     {"AttributeName": "conversation_id", "KeyType": "HASH"},

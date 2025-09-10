@@ -24,7 +24,7 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 # Call auth service to verify user token
 async def get_current_user(request: Request):
     async with aiohttp.ClientSession() as session:
-        async with session.get(AUTH_PATH, headers=request.headers) as resp: #type: ignore
+        async with session.get(AUTH_PATH, headers=request.headers) as resp:
             if resp.status != 200:
                 raise HTTPException(status_code=401, detail="Invalid token")
             return await resp.json()
