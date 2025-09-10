@@ -1,20 +1,44 @@
-version: "3.8"
-
 services:
     auth_service:
         build: ./auth_service
         container_name: auth_service
         ports:
             - "8001:8000"
-
+        volumes:
+            - ./auth_service:/app #
+        working_dir: /app/app
     user_service:
         build: ./user_service
         container_name: user_service
         ports:
             - "8002:8000"
+        volumes:
+            - ./user_service:/app
+        working_dir: /app/app
 
     post_service:
         build: ./post_service
         container_name: post_service
         ports:
             - "8003:8000"
+        volumes:
+            - ./post_service:/app
+        working_dir: /app/app
+
+    messaging_service:
+        build: ./ws_messaging_service
+        container_name: ws_messaging_service
+        ports:
+            - "8004:8000"
+        volumes:
+            - ./ws_messaging_service:/app
+        working_dir: /app/app
+
+    message_service:
+        build: ./message_service
+        container_name: message_service
+        ports:
+            - "8005:8000"
+        volumes:
+            - ./message_service:/app
+        working_dir: /app/app

@@ -7,4 +7,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app/ .
 
-CMD python create_post_table.py && uvicorn main:app --host 0.0.0.0 --port 8000
+CMD python create_message_table.py && uvicorn main:app --host 0.0.0.0 --port 8000
+
