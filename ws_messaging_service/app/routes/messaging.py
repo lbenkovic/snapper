@@ -7,7 +7,7 @@ from models import DMMessage
 load_dotenv()
 
 AUTH_PATH = os.getenv("AUTH_PATH")
-USERS_PATH = os.getenv("USERS_PATH")
+USERS_PATH = os.getenv("USER_PATH")
 MESSAGES_PATH = os.getenv("MESSAGES_PATH")
 
 router = APIRouter()

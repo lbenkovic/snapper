@@ -5,8 +5,11 @@ services:
         ports:
             - "8001:8000"
         volumes:
-            - ./auth_service:/app #
+            - ./auth_service:/app
         working_dir: /app/app
+        networks:
+            - app_network
+
     user_service:
         build: ./user_service
         container_name: user_service
@@ -15,6 +18,8 @@ services:
         volumes:
             - ./user_service:/app
         working_dir: /app/app
+        networks:
+            - app_network
 
     post_service:
         build: ./post_service
@@ -24,6 +29,8 @@ services:
         volumes:
             - ./post_service:/app
         working_dir: /app/app
+        networks:
+            - app_network
 
     messaging_service:
         build: ./ws_messaging_service
@@ -33,6 +40,8 @@ services:
         volumes:
             - ./ws_messaging_service:/app
         working_dir: /app/app
+        networks:
+            - app_network
 
     message_service:
         build: ./message_service
@@ -42,3 +51,9 @@ services:
         volumes:
             - ./message_service:/app
         working_dir: /app/app
+        networks:
+            - app_network
+
+networks:
+    app_network:
+        driver: bridge

@@ -34,7 +34,7 @@ async def get_current_user(request: Request):
 # Get full user data (returns only safe fields)
 async def get_full_user(request: Request):
     async with aiohttp.ClientSession() as session:
-        async with session.get(USER_PATH, headers=request.headers) as resp:
+        async with session.get(f"{USER_PATH}/me", headers=request.headers) as resp:
             if resp.status != 200:
                 raise HTTPException(status_code=resp.status, detail="Failed to fetch user data")
             return await resp.json()
