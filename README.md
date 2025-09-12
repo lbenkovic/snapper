@@ -24,7 +24,8 @@ Akademska godina: 2024./2025.
 
 -   Link na video: TBD
 
--   Link na dokumentaciju: TBD
+-   Link na dokumentaciju: [Snapper.pdf](https://github.com/user-attachments/files/22297602/luka-benkovic.pdf)
+
 
 ## Opis projekta
 
