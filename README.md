@@ -22,7 +22,7 @@ Akademska godina: 2024./2025.
 
 ## Linkovi
 
--   Link na video: [YouTube Link](https://youtu.be/vHVYRqWfEEA)
+-   Link na video: [YouTube Link](https://youtu.be/vHVYRqWfEEA){:target="_blank"} 
 
 -   Link na dokumentaciju: [Snapper.pdf](https://github.com/user-attachments/files/22297602/luka-benkovic.pdf)
 
