@@ -22,7 +22,7 @@ Akademska godina: 2024./2025.
 
 ## Linkovi
 
--   Link na video: TBD
+-   Link na video: [YouTube Link](https://youtu.be/vHVYRqWfEEA)
 
 -   Link na dokumentaciju: [Snapper.pdf](https://github.com/user-attachments/files/22297602/luka-benkovic.pdf)
 
@@ -36,7 +36,7 @@ Social Media App koja je kombinacija Twitter-a (X-a) i Snapchata, gdje je ideja 
 -   **Backend**: Python (FastAPI)
 -   **Baza podataka**: AWS DynamoDB
 -   **Pohrana datoteka**: AWS S3
--   **WebSocker**: FastAPI WebSocket
+-   **WebSocket**: FastAPI WebSocket
 -   **Autentifikacija**: JWT
 -   **Kontejnerizacija**: Docker & Docker Compose
 
